@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pierpont Virtual Tours</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .image-container {
+            position: relative;
+            width: 100%;
+            display: block;
+        }
+        
+        .splash-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Clickable areas - positioned absolutely over the image */
+        .clickable-area {
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .clickable-area:hover {
+            background-color: rgba(0, 123, 255, 0.2);
+            border: 2px solid #007bff;
+        }
+        
+        /* Define positions for each building (percentages based on image) */
+        /* Advanced Technology Center - Left */
+        .area-atc {
+            left: 0%;
+            top: 42%;
+            width: 20%;
+            height: 45%;
+        }
+        
+        /* Robert C. Byrd National Aerospace - Second from left */
+        .area-aerospace {
+            left: 20%;
+            top: 42%;
+            width: 21%;
+            height: 45%;
+        }
+        
+        /* Gaston Caperton Center - Middle */
+        .area-gaston {
+            left: 41%;
+            top: 42%;
+            width: 21%;
+            height: 45%;
+        }
+        
+        /* Veterinary Technology Building - Second from right */
+        .area-vet {
+            left: 62%;
+            top: 42%;
+            width: 19%;
+            height: 45%;
+        }
+        
+        /* Culinary Academy - Right */
+        .area-culinary {
+            left: 81%;
+            top: 42%;
+            width: 19%;
+            height: 45%;
+        }
+        
+        /* Instructions overlay */
+        .instructions {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .instructions h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .instructions p {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        /* Tooltip on hover */
+        .clickable-area::after {
+            content: attr(data-title);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .clickable-area:hover::after {
+            opacity: 1;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .instructions h2 {
+                font-size: 1.2rem;
+            }
+            
+            .instructions p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="VirtualTourSplash.png" alt="Pierpont Virtual Tours" class="splash-image">
+            
+            <!-- Clickable areas for each building -->
+            <a href="https://plabey.github.io/PierpontATCTour/" target="_blank" 
+               class="clickable-area area-atc" 
+               data-title="Advanced Technology Center - Fairmont, WV"
+               aria-label="Visit Advanced Technology Center Virtual Tour"></a>
+            
+            <a href="https://example.com/aerospace-center" target="_blank" 
+               class="clickable-area area-aerospace" 
+               data-title="Robert C. Byrd National Aerospace Education Center - Bridgeport, WV"
+               aria-label="Visit Aerospace Center Virtual Tour"></a>
+            
+            <a href="https://example.com/gaston-caperton-center" target="_blank" 
+               class="clickable-area area-gaston" 
+               data-title="Gaston Caperton Center - Clarksburg, WV"
+               aria-label="Visit Gaston Caperton Center Virtual Tour"></a>
+            
+            <a href="https://plabey.github.io/PierpontVetTechTour/" target="_blank" 
+               class="clickable-area area-vet" 
+               data-title="Veterinary Technology Building - Clarksburg, WV"
+               aria-label="Visit Veterinary Technology Building Virtual Tour"></a>
+            
+            <a href="https://example.com/culinary-academy" target="_blank" 
+               class="clickable-area area-culinary" 
+               data-title="Culinary Academy - White Hall, WV"
+               aria-label="Visit Culinary Academy Virtual Tour"></a>
+        </div>
+        
+        <div class="instructions">
+            <h2>Explore Our Campuses</h2>
+            <p>Click on any building to start your virtual tour</p>
+        </div>
+    </div>
+</body>
+</html>
